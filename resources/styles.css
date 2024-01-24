@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Oswald:wght@500&family=Poppins:wght@500&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: clamp(1rem,3.4783vw + 3.043rem,3rem);
+}
+
+.THlight{background: #191d28!important ;color: #fff!important;}
+.THdark{
+    background: #fff!important;
+    color: #191d28!important;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
+    padding: 7px 4px;
+    margin: 1.4rem;
+}
+
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 30px;
+    background: white;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: aqua;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+  input:checked + label {
+    background: #2e3241;
+  }
+  
+  input:checked + label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+  
+  label:active:after {
+    width: 14px;
+  }
+
+  .show{
+    position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-5px, 36px, 0px);
+  }
+
+.header-telegram-button {
+    margin: 10px;
+    padding: 7px 17px;
+    border-radius: 10px;
+    background-color: #3dc6c1;
+    color: #fff!important;
+    text-decoration: none;
+}
+
+.color-green {
+    color: #5dc7c2;
+}
+.average-heading {
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+.subText-heading {
+    font-size: 14px;
+}
+.average-header-maintext {
+    font-weight: 400;
+    font-size: 40px;
+}
+.average-header-maintext {
+    font-weight: 400;
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+
+.average-subText{
+    font-weight: 400;
+    /* color: #0c0f48; */
+    opacity: .45;
+    font-weight: 300;
+    /* font-size: 8px; */
+}
+.average-header-subHeading{
+    font-weight: 400;
+   /* / color: #0c0f48; */
+    opacity: .45;
+}
+@media screen and (max-width: 768px){
+
+
+.navbar{
+    flex-direction: column;
+}
+.average-header-subHeading, .average-header-subText {
+    font-weight: 400;
+    /* color: #0c0f48; */
+    opacity: .45;
+    font-weight: 300;
+    white-space: nowrap;
+}
+.average-header-subHeading{
+    /* font-size: 10px; */
+
+}
+
+}
+@media (max-width:1000px) {
+    
+.navbar{
+    flex-direction: column;
+}
+.header-button, .header-telegram-button {
+    /* font-size: 14px; */
+    padding: 5px 10px;
+    /* opacity: 0.75; */
+}
+}
+.exchange-logo{
+    width: 24px;
+    height: 24px;
+    margin: 0 4px;
+    border-radius: 50%;
+}
+.exchange-name{
+    
+    color: inherit;
+    cursor: pointer;
+}
+.exchange-name:hover{
+color: white;
+}
+
+.theme-dark{
+    position: relative;
+    /* background: #191d28; */
+    min-height: 100vh;
+    /* color: #fff; */
+    font-family: Oswald,sans-serif;
+}
+
+.header-telegram-button {
+    margin: 10px;
+    padding: 6px 20px;
+    border-radius: 10px;
+    background-color: #3dc6c1;
+    color: #fff!important;
+}
+
+.theme-dark .fiat-crypto-table td h4 {
+    font-family: Oswald;
+    font-size: 24px;}
+
+    .fiat-crypto-table th h4 {
+        font-size: 15px!important;
+        margin: 0.3rem 0;
+        font-weight: 400;
+        /* color: #fff; */
+        opacity: .45;
+    }
+
+    .fiat-crypto-table th:first-child{
+        border-radius: 10px 0 0 10px;
+    }
+    .fiat-crypto-table th:last-child{
+        border-radius: 0 10px 10px 0;
+    }
+.btngrp{
+    background: #2e3241!important;
+    border: 2px solid transparent;
+}
+
+.btn-secondary{
+    border: transparent!important;
+    border-radius: 14px!important;
+}
+
+.align-middle>a{
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    margin: .8rem auto;
+    background: inherit;
+
+}
+
+h4{
+    font-weight: 500;
+    line-height: 1.2;
+   
+}
+.table-text{
+    margin: 0.3rem 0;
+}
+tr{
+    text-wrap: nowrap;
+    margin: 14px;
+    /* background: inhe; */
+    border: 1px solid transparent;
+/* color: white; */
+    
+}table {
+color: inherit!important;
+    caption-side: bottom;
+    border-collapse: separate;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.theme-dark .fiat-crypto-table table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    margin: 0;
+}
+
+.theme-dark .fiat-crypto-table tbody td:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.theme-dark .fiat-crypto-table tbody td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.fiat-crypto-table td {
+    padding: 6px 3px!important;
+    white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+    .average-heading{
+        font-size:1.5rem!important;
+    }
+    .average-header-maintext {
+        font-size: 1.2rem!important;
+    }
+    .Container-fluid{
+        padding: 0 10px;
+        margin: 0;
+    }
+}

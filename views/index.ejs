@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>HodlInfo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body class="theme-dark THlight">
+    <nav>
+        <div class="navbar">
+            <div class="Logo">
+                <a href="/"><img src="https://hodlinfo.com/static/media/HODLINFO.8f78fc06.png" style="height: 60px;"
+                        alt=""></a>
+            </div>
+            <div class="text-center padding-none col-12 col-sm-12 col-md-2 col-lg-4 d-flex justify-content-center">
+                <div class="btn-group mx-3"><button type="button" aria-haspopup="true" aria-expanded="false"
+                        class="header-button dropdown-toggle btn btn-secondary btngrp" onclick="hendle()">INR</button>
+                    <div tabindex="-1" role="menu" id="btntbl" aria-hidden="true" class="dropdown-menu"><a value="INR"
+                            tabindex="0" role="menuitem" class="dropdown-item" href="/BTC-INR">INR</a></div>
+                </div>
+                <div>
+
+                    <div class="btn-group mx-3"><button type="button" aria-haspopup="true" aria-expanded="false"
+                            class="header-button dropdown-toggle btn btn-secondary btngrp"
+                            onclick="change()"><%= dropName %></button>
+                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu "
+                            x-placement="bottom-start" id="btntbl2">
+                            <a value="BTC" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/btc">BTC</a>
+                            <a value="ETH" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/eth">ETH</a>
+                            <a value="USDT" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/usdt">USDT</a>
+                            <a value="XRP" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/xrp">XRP</a>
+                            <a value="TRX" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/trx">TRX</a>
+                            <a value="DASH" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/dash">DASH</a>
+                            <a value="ZEC" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/zec">ZEC</a>
+                            <a value="XEM" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/xem">XEM</a>
+                            <a value="IOST" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/iost">IOST</a>
+                            <a value="WIN" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/win">WIN</a>
+                            <a value="BTT" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/btt">BTT</a>
+                            <a value="WRX" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/wrx">WRX</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group mx-3"><a target="_blank"
+                        href="https://wazirx.com/invite/sp7pvbt6?utm_source=finstreet&amp;utm_medium=affiliate&amp;utm_campaign=regnow-btn"
+                        type="button" aria-haspopup="true" aria-expanded="false"
+                        class="header-button btn btn-secondary btngrp text-nowrap">BUY
+                        BTC</a>
+                </div>
+            </div>
+            <div>
+                <div class="d-inline-flex flex-wrap align-items-center justify-content-center">
+                    <div class="progress-bar-wrapper">
+                    </div>
+                    <a class="color-white" href="/connect/telegram">
+                        <div
+                            class="d-flex telegram-logo-text header-telegram-button btn align-items-center pointer color-white justify-content-between">
+                            <div class="text-nowrap d-inline-block color-white header-telegram-button">
+                                <div class="d-inline-block mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09" />
+                                    </svg></div>
+                                Connect Telegram
+
+                            </div>
+                        </div>
+                    </a>
+                    </a>
+                    <!-- <div class="margin-10 d-inline-block"><label class="switch"><input type="checkbox" checked=""><span
+                                class="slider round"></span></label></div> -->
+                    <input type="checkbox" id="switch" checked="" onchange="toggleTheme()" /><label
+                        for="switch">Toggle</label>
+                    <!-- <div class="form-check form-switch">
+                        <input class="form-check-input" type=" checkbox" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="padding-bottom-50">
+        <div class="Container-fluid ">
+            <div class="d-flex justify-content-around align-items-center average-header" style="padding: 10px 0px;">
+                <div class="text-center">
+                    <div class="average-header-maintext color-green">0.94 %</div>
+                    <div class="average-header-subHeading">5 Mins</div>
+                </div>
+                <div class="text-center">
+                    <div class="average-header-maintext color-green">1.08 %</div>
+                    <div class="average-header-subHeading">1 Hour</div>
+                </div>
+                <div style="max-width: 40%;">
+                    <div class="text-center font-32 average-block">
+                        <div class="average-subText"><span class="subText-heading">Best Price to Trade</span></div>
+                        <div class="average-heading" style="padding-bottom: 10px;">₹ 35,94,039</div>
+                        <% if(name === null){ %>
+                            <div class="average-subText"></div>
+                        <% } else { %>
+                            <div class="average-subText">Average <%= name %> net price including commission</div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="average-header-maintext color-green">6 %</div>
+                    <div class="average-header-subHeading">1 Day</div>
+                </div>
+                <div class="text-center">
+                    <div class="average-header-maintext color-green">7.71 %</div>
+                    <div class="average-header-subHeading">7 Days</div>
+                </div>
+            </div>
+        </div>
+        <div class="fiat-crypto-table table-responsive" style="margin: 0px auto;">
+            <table class="table table-borderless text-center">
+                <thead>
+
+                    <th>
+                        <h4><span class="pointer">#</span></h4>
+                    </th>
+                    <th>
+                        <h4><span class="pointer">Name</span></h4>
+                    </th>
+                    <th>
+                        <h4><span class="pointer">Last Traded Price</span></h4>
+                    </th>
+                    <th>
+                        <h4><span class="pointer">Buy / Sell Price</span></h4>
+                    </th>
+                    <th>
+                        <h4><span class="pointer">Volume</span></h4>
+                    </th>
+                    <th>
+                        <h4><span class="pointer">Base Unit</span></h4>
+                    </th>
+
+                </thead>
+                <tbody>
+                    <% arr.forEach((item, index)=>{ %>
+                        <tr>
+                            <td class="align-middle">
+                                <h4 class="table-text"><%= index+1 %></h4>
+                            </td>
+                            <td class="align-middle"><a target="_blank"
+                                    href="https://wazirx.com/invite/sp7pvbt6?utm_source=finstreet&amp;utm_medium=affiliate&amp;utm_campaign=regnow-btn">
+                                    <h4 class="table-text"><span class="exchange-name "><%= item.name %></span></h4>
+                                </a></td>
+                            <td class="align-middle">
+                                <h4 class="table-text">₹<%= item.last %></h4>
+                            </td>
+                            <td class="align-middle">
+                                <h4 class="table-text"><span>₹ <%= item.buy %> / ₹ <%= item.sell %></span></h4>
+                            </td>
+                            <td class="align-middle">
+                                <h4 class="table-text color-red"><%= item.volume %></h4>
+                            </td>
+                            <td class="align-middle">
+                                <h4 class="table-text color-red"><%= item.base_unit %></h4>
+                            </td>
+                        </tr>
+
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center"
+        style="border:solid 1px #191d28;background-color:#191d28;position:fixed;left:0;align-items:center;width:100vw;height:47px;bottom:0;z-index:8">
+        <button class="add-button btn btn-outline-info" style="display: block;">Add hodlinfo to home screen</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <!-- Include Bootstrap JS (jQuery should be included before this) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        function change(event) {
+            const btn = document.getElementById('btntbl2');
+            if (btn.classList.contains('show')) {
+                btn.classList.remove('show');
+            } else {
+                btn.classList.add('show')
+                // console.log(btn.classList)
+            }
+        }
+
+        function hendle() {
+            const btn2 = document.querySelector('div[aria-hidden="true"]');
+            if (btn2.classList.contains('show')) {
+                btn2.classList.remove('show');
+
+            } else {
+                btn2.classList.add('show')
+            }
+        }
+
+        function toggleTheme() {
+            const check = document.getElementById('switch');
+            const bdy = document.getElementsByClassName('theme-dark')[0];
+            if (!check.checked) {
+                bdy.classList.add('THdark');
+                bdy.classList.remove('THlight');
+                console.log(document.querySelectorAll('tr')[0].style.background = '')
+            } else {
+                bdy.classList.remove('THdark');
+                bdy.classList.add('THlight')
+            }
+        }
+        
+        
+    </script>
+</body>
+
+</html>
