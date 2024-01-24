@@ -90,7 +90,7 @@ app.get('/', async (req, res)=>{
     res.render('index', {
         name: null,
         arr: arr,
-        dropName: "BTC"
+        dropName: "ALL"
     });
 });
 
