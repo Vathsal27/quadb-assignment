@@ -21,7 +21,7 @@
                 <div class="btn-group mx-3"><button type="button" aria-haspopup="true" aria-expanded="false"
                         class="header-button dropdown-toggle btn btn-secondary btngrp" onclick="hendle()">INR</button>
                     <div tabindex="-1" role="menu" id="btntbl" aria-hidden="true" class="dropdown-menu"><a value="INR"
-                            tabindex="0" role="menuitem" class="dropdown-item" href="/BTC-INR">INR</a></div>
+                            tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/">INR</a></div>
                 </div>
                 <div>
 
@@ -30,6 +30,7 @@
                             onclick="change()"><%= dropName %></button>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu "
                             x-placement="bottom-start" id="btntbl2">
+                            <a value="ALL" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/">ALL</a>
                             <a value="BTC" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/btc">BTC</a>
                             <a value="ETH" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/eth">ETH</a>
                             <a value="USDT" tabindex="0" role="menuitem" class="dropdown-item" href="http://localhost:3000/usdt">USDT</a>
@@ -53,10 +54,11 @@
                 </div>
             </div>
             <div>
+                <p class="d-inline-flex flex-wrap align-items-center justify-content-center" id="time">60</p>
                 <div class="d-inline-flex flex-wrap align-items-center justify-content-center">
                     <div class="progress-bar-wrapper">
                     </div>
-                    <a class="color-white" href="/connect/telegram">
+                    <a class="color-white" href="http://localhost:3000/telegram">
                         <div
                             class="d-flex telegram-logo-text header-telegram-button btn align-items-center pointer color-white justify-content-between">
                             <div class="text-nowrap d-inline-block color-white header-telegram-button">
@@ -97,7 +99,7 @@
                 <div style="max-width: 40%;">
                     <div class="text-center font-32 average-block">
                         <div class="average-subText"><span class="subText-heading">Best Price to Trade</span></div>
-                        <div class="average-heading" style="padding-bottom: 10px;">₹ 35,94,039</div>
+                        <div class="average-heading" style="padding-bottom: 10px;">₹ <%= bestPrice %></div>
                         <% if(name === null){ %>
                             <div class="average-subText"></div>
                         <% } else { %>
@@ -212,8 +214,18 @@
                 bdy.classList.add('THlight')
             }
         }
-        
-        
+    </script>
+    <script>
+        let timerElement = document.getElementById("time");
+        let time = 60;
+        const timer = setInterval(function(){
+            time -= 1;
+            timerElement.innerHTML = time;
+            if(time === 0){
+                clearInterval(timer);
+                window.location.href = "<%= current_route %>";
+            }
+        }, 1000);
     </script>
 </body>
 
