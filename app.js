@@ -119,17 +119,11 @@ app.get('/:crypto_unit', async (req, res)=>{
     }
     try{
         const data = await cryptoModel.find({base_unit: req.params.crypto_unit});
-        let bestPrice;
-        if(data.length != 0)
-        {
-            bestPrice = data[0].buy;
-            data.forEach(i => {
-                if(bestPrice >= i.buy)
-                    bestPrice = i.buy;
-            });
-        } else {
-            bestPrice = 0;
-        }
+        let bestPrice = data.length > 0 ? data[0].last : null;
+        data.forEach(i => {
+            if(bestPrice >= i.last)
+                bestPrice = i.last;
+        });
         const name = _.upperCase(req.params.crypto_unit);
         const current_route = "http://localhost:3000/" + req.params.crypto_unit;
         res.render('index', {
