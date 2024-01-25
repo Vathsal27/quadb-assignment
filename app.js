@@ -102,11 +102,6 @@ app.get('/', async (req, res)=>{
 });
 
 app.get('/:crypto_unit', async (req, res)=>{
-    // if(req.params.crypto_unit === 'telegram'){
-    //     res.send('Add customized page here for the telegram');
-    //     const time = await setTimeout(1000);
-    //     res.redirect('/');
-    // }
     if(req.params.crypto_unit === 'telegram'){
         res.send(`
             <html>
