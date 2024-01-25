@@ -150,5 +150,5 @@ app.get('/:crypto_unit', async (req, res)=>{
 });
 
 app.listen(3000, ()=>{
-    console.log("Server up and running");
+    console.log("Server up and running at port 3000");
 });
