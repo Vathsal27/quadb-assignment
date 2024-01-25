@@ -87,20 +87,41 @@ app.get('/', async (req, res)=>{
     });
 
     const arr = await cryptoModel.find({}).limit(10);
-    let bestPrice = arr[0].buy;
+    let bestPrice = arr.length > 0 ? arr[0].last : null;
     arr.forEach(i => {
-        if(bestPrice >= i.buy)
-            bestPrice = i.buy;
+        if(bestPrice >= i.last)
+            bestPrice = i.last;
     });
     res.render('index', {
         name: null,
         arr: arr,
         dropName: "ALL",
-        bestPrice: bestPrice
+        bestPrice: bestPrice,
+        current_route: "http://localhost:3000/"
     });
 });
 
 app.get('/:crypto_unit', async (req, res)=>{
+    // if(req.params.crypto_unit === 'telegram'){
+    //     res.send('Add customized page here for the telegram');
+    //     const time = await setTimeout(1000);
+    //     res.redirect('/');
+    // }
+    if(req.params.crypto_unit === 'telegram'){
+        res.send(`
+            <html>
+                <body>
+                    <p>Add customized page here for the telegram</p>
+                    <p>Redirecting in 5 seconds</p>
+                    <script>
+                        setTimeout(function() {
+                            window.location.href = 'http://localhost:3000/';
+                        }, 5000);
+                    </script>
+                </body>
+            </html>
+        `);
+    }
     try{
         const data = await cryptoModel.find({base_unit: req.params.crypto_unit});
         let bestPrice;
@@ -115,11 +136,13 @@ app.get('/:crypto_unit', async (req, res)=>{
             bestPrice = 0;
         }
         const name = _.upperCase(req.params.crypto_unit);
+        const current_route = "http://localhost:3000/" + req.params.crypto_unit;
         res.render('index', {
             arr: data,
             name: name + "/INR",
             dropName: name,
-            bestPrice: bestPrice
+            bestPrice: bestPrice,
+            current_route: current_route
         });
     } catch(err) {
         res.status(500).send('Internal Server Error');
