@@ -87,21 +87,43 @@ app.get('/', async (req, res)=>{
     });
 
     const arr = await cryptoModel.find({}).limit(10);
+    let bestPrice = arr[0].buy;
+    arr.forEach(i => {
+        if(bestPrice >= i.buy)
+            bestPrice = i.buy;
+    });
     res.render('index', {
         name: null,
         arr: arr,
-        dropName: "ALL"
+        dropName: "ALL",
+        bestPrice: bestPrice
     });
 });
 
 app.get('/:crypto_unit', async (req, res)=>{
-    const data = await cryptoModel.find({base_unit: req.params.crypto_unit});
-    const name = _.upperCase(req.params.crypto_unit);
-    res.render('index', {
-        arr: data,
-        name: name + "/INR",
-        dropName: name
-    });
+    try{
+        const data = await cryptoModel.find({base_unit: req.params.crypto_unit});
+        let bestPrice;
+        if(data.length != 0)
+        {
+            bestPrice = data[0].buy;
+            data.forEach(i => {
+                if(bestPrice >= i.buy)
+                    bestPrice = i.buy;
+            });
+        } else {
+            bestPrice = 0;
+        }
+        const name = _.upperCase(req.params.crypto_unit);
+        res.render('index', {
+            arr: data,
+            name: name + "/INR",
+            dropName: name,
+            bestPrice: bestPrice
+        });
+    } catch(err) {
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 app.listen(3000, ()=>{
